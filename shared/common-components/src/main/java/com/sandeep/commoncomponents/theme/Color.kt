@@ -1,4 +1,4 @@
-package com.sandeep.weathertracker.ui.theme
+package com.sandeep.commoncomponents.theme
 
 import androidx.compose.ui.graphics.Color
 

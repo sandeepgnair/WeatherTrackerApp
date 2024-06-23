@@ -1,6 +1,5 @@
-package com.sandeep.weathertracker.ui.theme
+package com.sandeep.commoncomponents.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

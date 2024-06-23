@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "WeatherTracker"
 include(":app")
+include(":city-search")
+include(":shared:common-components")

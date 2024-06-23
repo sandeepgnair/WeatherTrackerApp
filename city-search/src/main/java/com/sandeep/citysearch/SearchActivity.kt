@@ -21,8 +21,15 @@ import androidx.compose.ui.text.style.TextAlign
 import com.sandeep.commoncomponents.theme.StandardPadding
 import com.sandeep.commoncomponents.theme.WeatherTrackerTheme
 import com.sandeep.commoncomponents.ui.TopToolbar
+import com.sandeep.router.Router
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SearchActivity : ComponentActivity() {
+
+    @Inject lateinit var router: Router
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -30,7 +37,7 @@ class SearchActivity : ComponentActivity() {
             WeatherTrackerTheme {
                 SearchScreenContent(
                     onSearchClicked = {
-
+                        router.navigateToWeatherScreen(this)
                     },
                     onBackClicked = { }
                 )
@@ -48,7 +55,7 @@ fun SearchScreenContent(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            TopToolbar(title = "Weather Tracker", navigateBack = onBackClicked)
+            TopToolbar(title = "Search", navigateBack = onBackClicked)
         }
     ) { innerPadding ->
         var text by remember { mutableStateOf("") }

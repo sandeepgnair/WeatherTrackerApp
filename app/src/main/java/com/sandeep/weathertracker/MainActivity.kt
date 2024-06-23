@@ -6,6 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sandeep.weathertracker.ui.theme.StandardPadding
 import com.sandeep.weathertracker.ui.theme.WeatherTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +38,7 @@ fun MainContent(modifier: Modifier = Modifier) {
         topBar = {
             Text(
                 text = "Weather Tracker",
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(StandardPadding)
             )
         }
     ) { innerPadding ->
@@ -46,6 +51,15 @@ fun MainContent(modifier: Modifier = Modifier) {
                 text = "App",
                 modifier = Modifier.align(Alignment.Center)
             )
+            FloatingActionButton(
+                onClick = {
+                },
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(StandardPadding)
+            ) {
+                Icon(Icons.Rounded.Add, contentDescription = "Localized description")
+            }
         }
     }
 }

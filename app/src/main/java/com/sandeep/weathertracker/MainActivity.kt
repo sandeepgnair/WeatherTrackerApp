@@ -18,20 +18,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sandeep.commoncomponents.theme.StandardPadding
 import com.sandeep.commoncomponents.theme.WeatherTrackerTheme
+import com.sandeep.router.Router
 
 class MainActivity : ComponentActivity() {
+
+    lateinit var router: Router
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherTrackerTheme {
-                MainContent()
+                MainContent(
+                    onAddClicked = {
+                        navigateToCitySearch()
+                    })
             }
         }
     }
+
+    private fun navigateToCitySearch() = router.navigateToCitySearch()
 }
 
 @Composable
-fun MainContent(modifier: Modifier = Modifier) {
+fun MainContent(
+    modifier: Modifier = Modifier,
+    onAddClicked: () -> Unit,
+) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
@@ -51,8 +63,7 @@ fun MainContent(modifier: Modifier = Modifier) {
                 modifier = Modifier.align(Alignment.Center)
             )
             FloatingActionButton(
-                onClick = {
-                },
+                onClick = onAddClicked,
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(StandardPadding)
@@ -67,6 +78,6 @@ fun MainContent(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     WeatherTrackerTheme {
-        MainContent()
+        MainContent(onAddClicked = {})
     }
 }

@@ -3,6 +3,7 @@ package com.sandeep.weathertracker
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -22,11 +23,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sandeep.commoncomponents.theme.StandardPadding
 import com.sandeep.commoncomponents.theme.WeatherTrackerTheme
 import com.sandeep.router.Router
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    lateinit var router: Router
-    lateinit var mainViewModel: MainViewModel
+    @Inject lateinit var router: Router
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +46,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun navigateToCitySearch() = router.navigateToCitySearch()
+    private fun navigateToCitySearch() = router.navigateToCitySearch(this)
 }
 
 @Composable

@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sandeep.commoncomponents.theme.StandardPadding
 import com.sandeep.commoncomponents.theme.WeatherTrackerTheme
+import com.sandeep.commoncomponents.ui.TopToolbar
 import com.sandeep.router.Router
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -60,10 +61,7 @@ fun MainContent(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            Text(
-                text = "Weather Tracker",
-                modifier = Modifier.padding(StandardPadding)
-            )
+            TopToolbar(title = "Weather Tracker")
         }
     ) { innerPadding ->
         Box(

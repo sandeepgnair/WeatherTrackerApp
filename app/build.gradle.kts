@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(project(":shared:common-components"))
     implementation(project(":shared:router"))
-    implementation(project(":city-search"))
+    implementation(project(":feature:city-search"))
     implementation(project(":feature:weather"))
 
     kapt(libs.hilt.android.compiler)

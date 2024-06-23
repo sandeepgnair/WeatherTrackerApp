@@ -17,7 +17,6 @@ class MainViewModel @Inject constructor(): ViewModel() {
             it.copy(label = "Hello App")
         }
     }
-
 }
 
 data class MainViewState(

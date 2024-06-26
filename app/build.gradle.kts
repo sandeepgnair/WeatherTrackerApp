@@ -70,6 +70,7 @@ dependencies {
     implementation(project(":shared:router"))
     implementation(project(":feature:city-search"))
     implementation(project(":feature:weather"))
+    implementation(project(":feature:warnings"))
 
     kapt(libs.hilt.android.compiler)
 

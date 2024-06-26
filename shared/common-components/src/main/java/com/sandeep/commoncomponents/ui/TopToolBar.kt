@@ -2,6 +2,7 @@ package com.sandeep.commoncomponents.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -15,7 +16,8 @@ import androidx.compose.runtime.Composable
 @Composable
 fun TopToolbar(
     title: String,
-    navigateBack: (() -> Unit)? = null
+    actionButtonClicked: (() -> Unit)? = null,
+    navigateBack: (() -> Unit)? = null,
 ) {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
@@ -32,6 +34,15 @@ fun TopToolbar(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "Back"
                     )
+                }
+            }
+        },
+        actions = {
+            actionButtonClicked?.let {
+                IconButton(
+                    onClick = actionButtonClicked
+                ) {
+                    Icon(Icons.Filled.Warning, contentDescription = "Warnings")
                 }
             }
         }
